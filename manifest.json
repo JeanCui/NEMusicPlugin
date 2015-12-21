@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Unblock NetEase Music",
+  "description": "This extension should do it's thing...",
+  "version": "1.0",
+  
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"    
+  },
+  "permissions": [
+    "management",
+    "activeTab",
+    "proxy",
+    "http://cn-proxy.com/"
+  ],
+  "background": {
+    "scripts": [
+      "proxy.js"
+    ]
+  }
+
+
+}
