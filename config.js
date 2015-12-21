@@ -62,20 +62,51 @@ function setupProxy(){
   });
 }
 
+function change_plugin_icon(option){
+  switch(option){
+    case 'enable':
+      chrome.browserAction.setIcon({
+        path:"icon.png"
+      });
+      chrome.browserAction.setTitile({title: 'unblock netease is on'});
+      break;
+    case 'disable':
+      chrome.browserAction.setIcon({
+        path:"greyicon.png"
+      });
+      chrome.browserAction.setTitile({title: 'unblock netease is off'});
+      break;
+  }
+}
+
+
+// set up a pac file when plugin lanched
+console.log('plugin lanched');
+setupProxy();
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+  //console.log(changeInfo.url);
+  console.log('enter onupdated');
+  alert('enter onupdated');
+  //alert(changeInfo.url);  
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
-  var id = chrome.runtime.id;
   getCurrentTabUrl(function(curUrl){
     //console.log(curUrl);  
     if(isMatchNEMusicDomain(curUrl)){
       //chrome.browserAction.setIcon({
       //  path:"icon.png"
       //});
+      //change_plugin_icon('enable');
       setupProxy();
     }else{
 
       //chrome.browserAction.setIcon({
       //  path:"greyicon.png"
       //});
+      //change_plugin_icon('disable');
       console.log("false");
     }
     
