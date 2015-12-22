@@ -1,6 +1,3 @@
-// Copyright (c) 2014 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
 /**
  * Get the current URL.
@@ -62,6 +59,12 @@ function setupProxy(){
   });
 }
 
+
+//chrome.management.onUninstalled.addListener(function(id){
+//  if(id == )
+  
+//});
+
 function change_plugin_icon(option){
   switch(option){
     case 'enable':
@@ -81,16 +84,9 @@ function change_plugin_icon(option){
 
 
 // set up a pac file when plugin lanched
-console.log('plugin lanched');
+//console.log('plugin lanched');
 setupProxy();
-
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-  //console.log(changeInfo.url);
-  console.log('enter onupdated');
-  alert('enter onupdated');
-  //alert(changeInfo.url);  
-});
-
+NEPlugin_Version = '1.0';
 
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(curUrl){

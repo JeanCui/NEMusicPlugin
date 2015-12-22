@@ -4,22 +4,16 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html lang="en">
   <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
+    <meta charset="utf-8">
+    <title>Unblock Netease Music Popup Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.4.0.min.css">
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-3.3.5.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
 
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
@@ -27,15 +21,39 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
+     
      <script type="text/javascript" src="grab_server_addr.js"></script>
      <script type="text/javascript" src="proxy.js"></script>
      <script type="text/javascript" src="config.js"></script>
 
 </head>
-  <body>
-    <div id="status">This is Unblock NetEase Music \n
-      Chrome Plugin</div>
-    <img id="image-result" hidden>
-  </body>
+<body>
+
+  <div id="wrapper" class="container-fluid">
+    <div id="social">
+      <div><strong>Please Follow Us</strong> </div>
+
+      <div id="social-networks">
+        <div class="row">
+          <div class="col-xs-5 test-right">Weibo</div>
+          <div class="col-xs-7 test-left">
+            <a href="http://weibo.com/p/1005055802363739" target="_blank">
+              <i class="fa fa-weibo"></i>@unblock_Netease
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="setting_description">
+      <div class="text_block" id="help_text"></div>
+      <div class="text_block" id="feedback"></div>
+    </div>
+    <div id="version" class="text-muted"><small></small></div>
+  
+  </div>
+
+</body>
 </html>
 

@@ -3,9 +3,24 @@
   "name": "Unblock NetEase Music",
   "description": "This extension would unblock netease music website!", 
   "version": "1.0",
+  "minimum_chrome_version": "23.0",
   
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "proxy.js",
+      "grab_server_addr.js",
+      "config.js"
+    ]
+
+  },
+
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icons/icon48.png",
     "default_popup": "popup.html"
   },
   "permissions": [
@@ -13,5 +28,6 @@
     "activeTab",
     "proxy",
     "http://cn-proxy.com/"
-  ]
+  ],
+  "default_locale": "en"
 }

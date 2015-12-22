@@ -1,4 +1,3 @@
-
 function httpGet(theUrl, callback)
 {
   var xmlHttp = new XMLHttpRequest();
@@ -45,16 +44,11 @@ function parseServerAddr(htmlText){
       var percent_idx = speed_attr.indexOf('%');
       speed = speed_attr.substring(speed_idx+2, percent_idx); 
       //console.log(speed);
-    
-
-
-
-
 
       var server    = {};
       server.ip     = ip.textContent;
       server.port   = port.textContent;
-      server.speed  = speed; 
+      server.speed  = parseInt(speed); 
       server_list.push(server);
       //console.log("ip:"+ip.textContent+" port:"+port.textContent);
     //}
@@ -72,16 +66,18 @@ function getServerAddr(callback){
   var url = "http://cn-proxy.com/";
   httpGet(url, function(htmlText){
     var server_list = parseServerAddr(htmlText);
-    //for(var i=0; i < server_list.length; i++){
-    //  console.log(server_list[i]);
-    //}
-    //server_list[0].speed = 98;
-    //server_list[1].speed = 100;
+    
     if(server_list.length >=2){
       if(server_list[0].speed < server_list[1].speed){
+        //console.log(server_list[0].speed);
+        //console.log(server_list[1].speed);
         var tmp = server_list[0];
         server_list[0] = server_list[1];
         server_list[1] = tmp;
+        //console.log(server_list[0].speed);
+        //console.log(server_list[1].speed);
+        
+        //console.log('swap');
       }
     }
     callback(server_list);
