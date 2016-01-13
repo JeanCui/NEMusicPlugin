@@ -9,7 +9,7 @@ function httpGet(theUrl, callback)
       {
         callback(xmlHttp.responseText);
       }else{
-        console.log('request cn-proxy failed:'+xmlHttp.status);
+        //console.log('request cn-proxy failed:'+xmlHttp.status);
       }
     }
 

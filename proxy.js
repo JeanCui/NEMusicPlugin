@@ -1,7 +1,7 @@
 
 
 function setup_proxy(server_list){
-  console.log("execute setup_proxy func");
+  //console.log("execute setup_proxy func");
   setup_pac_data(server_list);
 }
 
@@ -78,7 +78,7 @@ function setup_pac_file(server_ip)
                  "  return 'DIRECT';\n" +
                  "}";
 
-  console.log(pac_data);
+  //console.log(pac_data);
   var proxy_config = {
     mode: 'pac_script',
     pacScript: {
@@ -97,7 +97,7 @@ function setup_pac_file(server_ip)
 }
 
 function setup_pac_data(server_list){
-  console.log("enter setup_pac_data func");
+  //console.log("enter setup_pac_data func");
  
   // from http://pac.unblockcn.com
   //var pac_server_addr = 'PROXY 203.88.160.145:80; ';// = 'PROXY 101.226.249.237:80; '+'DIRECT';
