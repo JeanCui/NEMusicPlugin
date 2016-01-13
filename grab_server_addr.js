@@ -3,11 +3,14 @@ function httpGet(theUrl, callback)
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", theUrl, true);
   xmlHttp.onreadystatechange = function() {
-    if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    if(xmlHttp.readyState == 4)
     {
-      callback(xmlHttp.responseText);
-    }else{
-      console.log('request cn-proxy failed');
+      if(xmlHttp.status == 200)
+      {
+        callback(xmlHttp.responseText);
+      }else{
+        console.log('request cn-proxy failed:'+xmlHttp.status);
+      }
     }
 
   }

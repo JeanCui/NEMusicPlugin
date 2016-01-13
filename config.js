@@ -44,11 +44,20 @@ function isMatchNEMusicDomain(theUrl){
   }else{
     return false;
   }
+}
 
+function isMatchQQMusicDomain(theUrl){
+  var testUrl = 'y.qq.com';
+  if(theUrl.indexOf(testUrl) !== -1)
+  {
+    return true;
+  }else{
+    return false;
+  }
 }
 
 function setupProxy(){
-  console.log("start to setup proxy for Netease music");
+  //console.log("start to setup proxy for Netease music");
   getServerAddr(function(server_list){
     //for(var i = 0; i < server_list.length; i++)
     //{
@@ -86,24 +95,18 @@ function change_plugin_icon(option){
 // set up a pac file when plugin lanched
 //console.log('plugin lanched');
 setupProxy();
-NEPlugin_Version = '1.0';
+NEPlugin_Version = '2.0';
 
 document.addEventListener('DOMContentLoaded', function() {
+  // When each time open netease website or qq music website
+  // update the proxy server
   getCurrentTabUrl(function(curUrl){
     //console.log(curUrl);  
-    if(isMatchNEMusicDomain(curUrl)){
-      //chrome.browserAction.setIcon({
-      //  path:"icon.png"
-      //});
-      //change_plugin_icon('enable');
+    if(isMatchNEMusicDomain(curUrl) || isMatchQQMusicDomain(curUrl)){
+      //console.log("call setup proxy from addEventListener")
       setupProxy();
     }else{
-
-      //chrome.browserAction.setIcon({
-      //  path:"greyicon.png"
-      //});
-      //change_plugin_icon('disable');
-      console.log("false");
+      //console.log("false");
     }
     
   });
