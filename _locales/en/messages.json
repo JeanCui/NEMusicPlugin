@@ -1,9 +1,9 @@
 {
   "description":{
-    "message": "Helps users who is out of mainland China access music.163.com"
+    "message": "Helps users who is out of mainland China access music.163.com and qq web music"
   },
   "help":{
-    "message": "<b>If this plugin not working properly, Please try to refresh webpage or reopen Chrome </b>"
+    "message": "If this plugin not working properly, Please try to refresh webpage or reopen Chrome"
   },
   "feedback": {
     "message": "If you find any problems using this, please <a href=\"mailto:cuijin92@gmail.com?Subject=Problem%20regarding%20to%20NetEase%20Music%20Plugin\" target=\"_blank\">Send Mail</a>"
