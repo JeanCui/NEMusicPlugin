@@ -15,14 +15,6 @@
   // });
   // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 
-/**
- * @param {string} searchTerm - Search term for Google Image search.
- * @param {function(string,number,number)} callback - Called when an image has
- *   been found. The callback gets the URL, width and height of the image.
- * @param {function(string)} errorCallback - Called when the image is not found.
- *   The callback gets a string that describes the failure reason.
- */
-
 function getCurrentTabUrl(callback) {
   var queryInfo = {
     active: true,
@@ -68,12 +60,6 @@ function setupProxy(){
   });
 }
 
-
-//chrome.management.onUninstalled.addListener(function(id){
-//  if(id == )
-  
-//});
-
 function change_plugin_icon(option){
   switch(option){
     case 'enable':
@@ -92,14 +78,10 @@ function change_plugin_icon(option){
 }
 
 
-// set up a pac file when plugin lanched
-//console.log('plugin lanched');
-setupProxy();
-NEPlugin_Version = '2.0';
-
+/* When each time open netease website or qq music website
+* update the proxy server, and reset PAC file.
+*/
 document.addEventListener('DOMContentLoaded', function() {
-  // When each time open netease website or qq music website
-  // update the proxy server
   getCurrentTabUrl(function(curUrl){
     //console.log(curUrl);  
     if(isMatchNEMusicDomain(curUrl) || isMatchQQMusicDomain(curUrl)){
@@ -111,3 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
   });
 });
+
+
+// set up a pac file when plugin lanched
+setupProxy();
+NEPlugin_Version = '2.0';
