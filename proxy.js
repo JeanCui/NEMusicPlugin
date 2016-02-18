@@ -86,10 +86,22 @@ function setup_pac_file(server_ip)
 function test_server(server_list){
   //console.log("enter setup_pac_data func");
  
+  // generate a random number between [0,5]
+  // use this strategy to avoid the fastest server 
+  // is always the same and not working
+  var random_num;
+  if(server_list.length >= 5)
+  {
+    random_num = Math.floor(Math.random()*5);
+  }else{
+    random_num = Math.floor(Math.random()*server_list.length);
+  }
+  console.log("random_num:"+random_num);
+  var server     = server_list[random_num];
   /*
    * ONLY TEST the Fastest server
    */
-  new ping(server_list[0].ip, server_list[0].port, function(stat,e){
+  new ping(server.ip, server.port, function(stat,e){
     // check if this server is healthy
     if(stat === 'responded'){
       setup_pac_file(this.ip+":"+this.port);  

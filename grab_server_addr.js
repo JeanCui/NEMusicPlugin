@@ -43,7 +43,7 @@ function parseServerAddr(htmlText){
   parser.innerHTML = htmlText;
 
   //var second_div = parser.getElementsByTagName('div');
-  var second_div = parser.getElementsByClassName('table-container')[1];
+  var second_div = parser.getElementsByClassName('table-container')[0];
   
   var server_table = second_div.getElementsByTagName('tbody')[0];
   //console.log(server_table);
