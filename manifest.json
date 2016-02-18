@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Unblock NetEase Music",
   "description": "This extension would unblock netease music website!", 
-  "version": "2.0",
+  "version": "2.1",
   "minimum_chrome_version": "23.0",
   
   "icons": {

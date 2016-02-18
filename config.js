@@ -97,4 +97,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // set up a pac file when plugin lanched
 setupProxy();
-NEPlugin_Version = '2.0';
+NEPlugin_Version = '2.1';
